@@ -1,0 +1,65 @@
+@import './theme.scss';
+.primary-button {
+  background-color: $primary-color;
+  border: none;
+  width: 140px;
+  color: white;
+  font-size: 1.25rem;
+  &:hover {
+    //color: ;
+    border-color: $BORDER_COLOR;
+
+  }
+  &:active {
+    background-color: $secondary-color;
+    color: $secondary-font-color;
+  }
+  &.rounded {
+    border: 1px solid;
+    border-radius: 7px;
+    &.fat-border {
+      border-width: 1px;
+    }
+  }
+  + * {
+    margin: 10px 20px;
+  }
+}
+
+.secondary-button {
+  @extend .primary-button;
+  background-color: white;
+  border-color: $BORDER_COLOR;
+  color: $TEXT_COLOR;
+}
+
+.text-button {
+  background-color: transparent;
+  color: $disabled-color;
+
+  border: none;
+  &:hover {
+    //color: ;
+    color: $FILL_COLOR;
+
+  }
+  &.strong {
+    font-weight: 700;
+  }
+  &.h4 {
+    font-size: 1.2rem;
+  }
+  &.h3 {
+    font-size: 1rem;
+  }
+}
+
+
+[type='button'],
+button {
+  &:active,
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
