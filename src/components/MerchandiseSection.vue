@@ -1,11 +1,11 @@
 <template>
   <div class="merchandise-section">
     <a class="title-header">
-      <h2 class="title flex-item item-start">
+      <h2 class="title flex-item">
         {{title}}
       </h2>
       <div class="push"></div>
-      <div class="header-tail flex-item item-end">
+      <div class="header-tail flex-item">
         <h4>Shop {{info.meta.total_count}} items</h4>
       </div>
     </a>
@@ -76,7 +76,8 @@
     display: flex;
     width: 100%;
     background-color: rgb(0, 35, 93);
-    padding: 10px 0px;
+    padding: 14px 20px;
+    box-sizing: border-box;
   }
   .item-start {
     padding-left: 20px;
