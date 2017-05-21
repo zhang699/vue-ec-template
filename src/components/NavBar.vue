@@ -2,7 +2,7 @@
   <div class="nav-bar">
     <div class="nav-bar-content">
       <div class="logo">
-        <h2>honestBee</h2>
+        <h2>Fake HonestBee</h2>
       </div>
       <div class="content center-vertical">
         <div class="store center-vertical">

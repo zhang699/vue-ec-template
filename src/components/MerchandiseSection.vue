@@ -1,11 +1,11 @@
 <template>
   <div class="merchandise-section">
     <a class="title-header">
-      <h2 class="title flex-item">
+      <h2 class="title flex-item item-start">
         {{title}}
       </h2>
       <div class="push"></div>
-      <div class="header-tail flex-item">
+      <div class="header-tail flex-item item-end">
         <h4>Shop {{info.meta.total_count}} items</h4>
       </div>
     </a>
@@ -16,9 +16,11 @@
             <div class="thumbnail" :style="{'background-image': `url(${item.previewImageUrl})`}">
 
             </div>
-            <strong>{{item.currency}} {{item.price}}</strong>
-            <h4>{{item.title}}</h4>
-            <h4>{{item.size}}</h4>
+            <div class="description">
+              <strong>{{item.currency}} {{item.price}}</strong>
+              <h4>{{item.title}}</h4>
+              <h4>{{item.size}}</h4>
+            </div>
 
         </ol>
       </ul>
@@ -50,27 +52,37 @@
       display: flex;
       flex-direction: row;
     }
+    overflow-x: hidden;
   }
   .item-container {
     min-width: 180px;
-    height: 400px;
+    height: 300px;
     text-align: left;
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
     $BOX_SHADOW_COLOR: #ccc;
     transition: box-shadow 0.5s;
+    padding-top: 20px;
     &:hover {
       box-shadow:5px 2px 5px $BOX_SHADOW_COLOR, -5px 2px 5px $BOX_SHADOW_COLOR;
-
+    }
+    .description {
+      padding: 5px 5px;
     }
   }
   .title-header {
     color: white;
     display: flex;
     width: 100%;
-    height: 70px;
     background-color: rgb(0, 35, 93);
+    padding: 10px 0px;
+  }
+  .item-start {
+    padding-left: 20px;
+  }
+  .item-end {
+    padding-right: 20px;
   }
   .header-tail {
 

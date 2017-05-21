@@ -34,6 +34,8 @@ body {
 
 ol, ul {
   -webkit-padding-start: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
 }
 h1, h2, h3, h4{
   margin: 0;
