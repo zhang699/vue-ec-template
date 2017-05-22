@@ -33,7 +33,7 @@
 </template>
 
 <script>
-  import { get } from './MerchandiseSection';
+  import { get } from '../testdata/MerchandiseSection';
 
   export default {
     name: 'MerchandiseSection',
@@ -43,7 +43,6 @@
         info: {
           ...get(),
         },
-        title: '1234',
       };
     },
   };
