@@ -54,6 +54,14 @@
   }
 }
 
+.action-text-button {
+  @extend .text-button;
+  color: $FILL_COLOR;
+  &:hover {
+    color: $TEXT_COLOR;
+  }
+  font-weight: 900;
+}
 
 [type='button'],
 button {

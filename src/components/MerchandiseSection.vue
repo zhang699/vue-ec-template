@@ -16,10 +16,14 @@
             <div class="thumbnail" :style="{'background-image': `url(${item.previewImageUrl})`}">
 
             </div>
-            <div class="description">
+            <div class="description flex-column-item">
               <strong>{{item.currency}} {{item.price}}</strong>
               <h4>{{item.title}}</h4>
               <h4>{{item.size}}</h4>
+
+              <button class="action-text-button bottom-right">
+                  Add to cart
+              </button>
             </div>
 
         </ol>
@@ -39,6 +43,7 @@
         info: {
           ...get(),
         },
+        title: '1234',
       };
     },
   };
@@ -47,6 +52,7 @@
 <style lang="scss" scoped>
 
   @import '../assets/common.scss';
+  @import '../assets/button.scss';
   .content {
     > ul {
       display: flex;

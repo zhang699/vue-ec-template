@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.flex-column-item {
+  display: flex;
+  flex-direction: column;
+}
 .flex-secondary-center {
   align-items: center;
 }
@@ -15,6 +19,10 @@
   display: flex;
 }
 
+.bottom-right {
+  align-self: flex-end;
+  margin-top: 15px;
+}
 .push {
   flex: 1;
 }

@@ -5,7 +5,7 @@
       <a v-for="position in positions" class="target-page" :style="{ 'background-image': `url(${position.image})`, 
       'top': `${position.top}`, 
       'left': `${position.left}`,
-      'display': `${position.isHide ? 'none': 'block'}`}">
+      'z-index': `${position.zIndex}`}">
       </a>
     </div>
   </section>
@@ -37,10 +37,12 @@
           return '0%';
         }
         this.positions = this.positions.map((position) => {
+          const shiftedLeft = shiftLeft(position.left);
+          const isMoveToFront = shiftedLeft === '100%';
           return {
             ...position,
-            left: shiftLeft(position.left),
-            //isHide: position.left === '-100%',
+            left: shiftedLeft,
+            zIndex: isMoveToFront ? '0' : '1',
           };
         });
       },
