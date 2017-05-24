@@ -1,0 +1,17 @@
+
+
+.form-input {
+  border: 0 none;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  min-width: 400px;
+  height: 50px;
+  font-size: 1.2rem;
+  :hover {
+    border-color: #ccc;
+  }
+  margin: 20px 0px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+}

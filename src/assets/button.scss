@@ -58,7 +58,7 @@
   @extend .text-button;
   color: $FILL_COLOR;
   &:hover {
-    color: $TEXT_COLOR;
+    color: $TEXT_HOVER_COLOR;
   }
   font-weight: 900;
 }

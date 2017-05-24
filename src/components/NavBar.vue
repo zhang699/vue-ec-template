@@ -14,8 +14,13 @@
         </div>
       </div>
       <div class="control">
-        <button class="rounded secondary-button fat-border">Log In</button>
-        <button class="rounded primary-button fat-border">Sign Up</button>
+        <router-link :to="{ name: 'Login'}" class="router-link center-vertical">
+          <button class="rounded secondary-button fat-border">Log In</button>
+        </router-link>
+        
+        <router-link :to="{ name: 'Register'}" class="router-link center-vertical">
+          <button class="rounded primary-button fat-border">Sign Up</button>
+        </router-link>
       </div>
     </div>
 
@@ -42,7 +47,11 @@
 
   @import '../assets/button.scss';
 
-
+  .router-link {
+    height: 100%;
+    text-decoration: none;
+    margin: 0 10px;
+  }
   .nav-bar {
     position: fixed;
     background-color: #fff;

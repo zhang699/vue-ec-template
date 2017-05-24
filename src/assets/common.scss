@@ -17,6 +17,7 @@
 }
 .center-vertical {
   display: flex;
+  align-items: center;
 }
 
 .bottom-right {
@@ -26,3 +27,7 @@
 .push {
   flex: 1;
 }
+.match-parent {
+  width: 100%;
+}
+
