@@ -55,7 +55,7 @@
   .nav-bar {
     position: fixed;
     background-color: #fff;
-    top: 0;
+    top: $progress-bar-height;
     z-index: 99;
     height: $nav-bar-height;
     width: 100%;

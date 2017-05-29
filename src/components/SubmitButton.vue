@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <button class="rounded primary-button fat-border button">{{text}} </button> 
+    <button @click="click" class="rounded primary-button fat-border button">{{text}} </button> 
   </div>
 </template>
 
@@ -11,8 +11,13 @@
     props: ['text'],
     data() {
       return {}
-    }
-  }
+    },
+    methods: {
+      click() {
+        this.$emit('click', {});
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>

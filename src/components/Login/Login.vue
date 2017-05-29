@@ -6,7 +6,7 @@
       <input class="form-input match-parent" value="" placeholder="Email"/>
       <input class="form-input match-parent" value="" placeholder="Password"/>
       
-      <submit-button class="submit-button match-parent" :text="'LOG IN'"/>
+      <submit-button @click="click" class="submit-button match-parent" :text="'LOG IN'"/>
 
       <div class="help match-parent">
         
@@ -28,6 +28,14 @@
     name: 'Login',
     components: {
       SubmitButton,
+    },
+    methods: {
+      click() {
+        console.warn('click Login button');
+        this.$store.dispatch('login', {}).then(()=>{
+          console.warn('login done');
+        });
+      },
     },
   };
 </script>

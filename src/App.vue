@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <APIIndicator/>
     <nav-bar></nav-bar>
     <router-view></router-view>
   </div>
@@ -7,11 +8,13 @@
 
 <script>
 import NavBar from './components/NavBar';
+import APIIndicator from './components/APIIndicator/APIIndicator';
 
 export default {
   name: 'app',
   components: {
     NavBar,
+    APIIndicator,
   },
 };
 </script>
