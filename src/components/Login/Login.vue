@@ -31,9 +31,7 @@
     },
     methods: {
       click() {
-        console.warn('click Login button');
         this.$store.dispatch('login', {}).then(()=>{
-          console.warn('login done');
         });
       },
     },

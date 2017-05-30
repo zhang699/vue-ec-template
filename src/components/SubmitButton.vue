@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <button @click="click" class="rounded primary-button fat-border button">{{text}} </button> 
+    <button @click="click" :class="{ disabled: isRequesting}" class="rounded primary-button fat-border button disabled-button">{{text}} </button> 
   </div>
 </template>
 
@@ -10,17 +10,23 @@
     name: 'SubmitButton',
     props: ['text'],
     data() {
-      return {}
+      return {
+        isRequesting: true,
+      };
     },
     methods: {
       click() {
-        this.$emit('click', {});
+        if (!this.isRequesting) {
+          this.$emit('click', {});
+        }
       },
     },
   };
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/button.scss';
+
   .button {
     width: 100%;
     height: 40px;

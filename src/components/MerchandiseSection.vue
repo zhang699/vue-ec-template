@@ -6,12 +6,15 @@
       </h2>
       <div class="push"></div>
       <div class="header-tail flex-item">
-        <h4>Shop {{info.meta.total_count}} items</h4>
+        <h4>Shop {{products.length}} items</h4>
       </div>
     </a>
-    <div class="content">
+    <div class="content" v-if="waiting">
+      <h3>Waiting...</h3>
+    </div>
+    <div class="content" v-if="!waiting">
       <ul>
-        <ol class="item-container" v-for="item in info.products">
+        <ol class="item-container" v-for="item in products">
     
             <div class="thumbnail" :style="{'background-image': `url(${item.previewImageUrl})`}">
 
@@ -33,17 +36,12 @@
 </template>
 
 <script>
-  import { get } from '../testdata/MerchandiseSection';
 
   export default {
     name: 'MerchandiseSection',
-    props: ['title'],
+    props: ['title', 'products', 'waiting'],
     data() {
-      return {
-        info: {
-          ...get(),
-        },
-      };
+      return {};
     },
   };
 </script>
@@ -58,6 +56,9 @@
       flex-direction: row;
     }
     overflow-x: hidden;
+    > h3 {
+      color: black;
+    }
   }
   .item-container {
     min-width: 180px;

@@ -1,6 +1,11 @@
-import api from '../api/Login';
-import * as types from './actionType';
 import { executeRequest } from '../../../libs/api';
+import { createTypes } from 'reduxsauce';
+
+export const types = createTypes(`
+  LOGIN_SUCCESS
+  LOGIN_FAILURE
+  LOGIN_PROCESSING
+`);
 
 // initial state
 // shape: [{ id, quantity }]
@@ -21,15 +26,19 @@ const actions = {
         types.LOGIN_PROCESSING,
         types.LOGIN_SUCCESS,
         types.LOGIN_FAILURE],
-      url: 'www.google.com',
-      method: 'GET',
+      url: 'posts',
+      body: {
+        test: 1,
+        test2: 2,
+      },
+      method: 'POST',
     });
   },
 };
 
 // mutations
 const mutations = {
-  [types.LOGIN_SUCCESS](state) {
+  [types.LOGIN_SUCCESS](state, result) {
   },
   [types.LOGIN_FAILURE](state) {
   

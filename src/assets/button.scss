@@ -10,7 +10,7 @@
     border-color: $BORDER_COLOR;
 
   }
-  &:active {
+  &:active:not(.disabled-button) {
     background-color: $secondary-color;
     color: $secondary-font-color;
   }
@@ -70,4 +70,8 @@ button {
   &:focus {
     outline: none;
   }
+}
+
+.disabled-button {
+  background-color: #ccc;
 }
