@@ -1,5 +1,7 @@
 import { INDICATOR_PROCESSING, INDICATOR_DONE, INDICATOR_START } from '../components/APIIndicator/modules/actionType';
 
+import humps from 'humps';
+
 const API_HOST = process.env.API_HOST;
 
 class RequestError {
@@ -11,6 +13,9 @@ class RequestError {
 
 RequestError.prototype = Error.prototype;
 
+const DEFAULT_HEADER = {
+  'Content-Type': 'application/json',
+};
 
 function request(options) {
   const { url, method = 'GET' } = options;
@@ -44,6 +49,8 @@ function request(options) {
     } else {
       return response.json();
     }
+  }).then((responseJSON) => {
+    return humps.camelizeKeys(responseJSON);
   });
 }
 
@@ -51,7 +58,7 @@ function request(options) {
 
 export function executeRequest({ commit, state, dispatch }, options) {
   return new Promise((resolve, reject) => {
-    const { showAPIIndicator = true } = options;
+    const { showAPIIndicator = true, dotAnnotation = '' } = options;
     const [PROCESSING, SUCCESS, FAILURE] = options.types;
     if (showAPIIndicator){
       commit(INDICATOR_START);
@@ -62,13 +69,15 @@ export function executeRequest({ commit, state, dispatch }, options) {
       commit(INDICATOR_PROCESSING);
     });
 
-    request(options).then((responseJSON) => {
-      commit(SUCCESS, responseJSON);
+    request(options).then((responseJSONInCamelcase) => {
+      const wantedResponseResult = dotAnnotation.split('.').reduce((a, b) => (a[b]), responseJSONInCamelcase) || responseJSONInCamelcase;
+      
+      commit(SUCCESS, wantedResponseResult);
      
       if (showAPIIndicator) {
         commit(INDICATOR_DONE);
       }
-      resolve(responseJSON);
+      resolve(wantedResponseResult);
     }).catch((err) => {
       commit(FAILURE, err);
       if (showAPIIndicator) {
@@ -86,9 +95,7 @@ function getQueryString(params = {}) {
     .join('&');
 }
 
-const DEFAULT_HEADER = {
-  'Content-Type': 'application/json',
-};
+
 
 
 

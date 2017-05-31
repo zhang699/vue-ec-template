@@ -1,14 +1,19 @@
 
 <template>
   <div>
-    <button @click="click" :class="{ disabled: isRequesting}" class="rounded primary-button fat-border button disabled-button">{{text}} </button> 
+    <status-button :text="text" :disabled="false" @click="click"></status-button>
   </div>
 </template>
 
 <script>
+  import StatusButton from '../../StatusButton';
+
   export default {
     name: 'SubmitButton',
     props: ['text'],
+    components: {
+      StatusButton,
+    },
     data() {
       return {
         isRequesting: true,
@@ -16,7 +21,7 @@
     },
     methods: {
       click() {
-        if (!this.isRequesting) {
+        if (this.isRequesting) {
           this.$emit('click', {});
         }
       },
@@ -25,10 +30,5 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../assets/button.scss';
 
-  .button {
-    width: 100%;
-    height: 40px;
-  }
 </style>

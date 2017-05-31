@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import login from '../components/Login/modules/login';
-import APIIndicator from '../components/APIIndicator/modules/APIIndicator';
+import APIIndicator from '../components/container/APIIndicator/modules/APIIndicator';
 import merchandiseDashboard from '../components/MerchandiseDashboard/modules/merchandiseDashboard';
 
 

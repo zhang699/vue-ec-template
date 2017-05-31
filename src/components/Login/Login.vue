@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import SubmitButton from '@/components/SubmitButton';
+  import SubmitButton from '@/components/container/SubmitButton/SubmitButton';
 
   export default {
     name: 'Login',
