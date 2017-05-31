@@ -1,4 +1,4 @@
-import { executeRequest } from '../../../libs/api';
+import { executeRequest } from '@/libs/api';
 import { createTypes } from 'reduxsauce';
 
 export const types = createTypes(`

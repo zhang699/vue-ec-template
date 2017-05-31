@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import NavBar from './components/NavBar';
-import APIIndicator from './components/container/APIIndicator/APIIndicator';
+import NavBar from '@/components/NavBar';
+import APIIndicator from '@/components/container/APIIndicator/APIIndicator';
 
 export default {
   name: 'app',

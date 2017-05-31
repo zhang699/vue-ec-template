@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import LandingPage from '../LandingPage';
-import MerchandiseSection from '../MerchandiseSection';
+import LandingPage from '@/components/LandingPage';
+import MerchandiseSection from '@/components/MerchandiseSection';
 import { mapActions, mapState } from 'vuex';
 
 export default {

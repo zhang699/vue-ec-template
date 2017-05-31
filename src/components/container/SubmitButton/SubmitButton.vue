@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import StatusButton from '../../StatusButton';
+  import StatusButton from '@/components/StatusButton';
 
   export default {
     name: 'SubmitButton',

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Merchandises from '@/components/MerchandiseDashBoard/Merchandises';
+import Merchandises from '@/components/MerchandiseDashboard/Merchandises';
 import Login from '@/components/Login/Login';
 import Register from '@/components/Register/Register';
 
