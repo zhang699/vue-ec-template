@@ -1,4 +1,4 @@
-import { INDICATOR_PROCESSING, INDICATOR_DONE, INDICATOR_START } from '../components/APIIndicator/modules/actionType';
+import { INDICATOR_PROCESSING, INDICATOR_DONE, INDICATOR_START } from '../components/container/APIIndicator/modules/actionType';
 
 import humps from 'humps';
 
