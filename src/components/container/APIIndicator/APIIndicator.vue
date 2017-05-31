@@ -64,7 +64,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../assets/theme.scss';
+  @import '../../../assets/theme.scss';
   .progress-bar {
     background-color: $progress-bar-color;
     height: $progress-bar-height;
