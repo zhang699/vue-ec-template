@@ -24,7 +24,8 @@
               <h4>{{item.title}}</h4>
               <h4>{{item.size}}</h4>
 
-              <button class="action-text-button bottom-right">
+              <button class="action-text-button bottom-right" @click=
+            "addCart(item)">
                   Add to cart
               </button>
             </div>
@@ -42,6 +43,11 @@
     props: ['title', 'products', 'waiting'],
     data() {
       return {};
+    },
+    methods: {
+      addCart(item) {
+        this.$emit('addCart', item);
+      },
     },
   };
 </script>

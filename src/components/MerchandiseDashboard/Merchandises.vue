@@ -3,7 +3,8 @@
       <landing-page />
 
       <h1>Super Markets </h1>
-      <merchandise-section :waiting="waiting" :products="ecProducts" title="Ben's Independent Grocer"></merchandise-section>
+      <merchandise-section :waiting="waiting" :products="ecProducts" title="Ben's Independent Grocer" @addCart="addToCart"></merchandise-section>
+
   </div>
 </template>
 
@@ -35,7 +36,11 @@ export default {
   methods: {
     ...mapActions([
       'getMerchandise',
+      'addCart',
     ]),
+    addToCart(item) {
+      this.addCart(item);
+    },
   },
 };
 </script>

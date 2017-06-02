@@ -26,11 +26,13 @@ const actions = {
         types.LOGIN_PROCESSING,
         types.LOGIN_SUCCESS,
         types.LOGIN_FAILURE],
-      url: 'posts',
+      url: 'Auth/Login',
       body: {
-        test: 1,
-        test2: 2,
+        username: 'admin',
+        password: '1234',
+        grant_type: 'password',
       },
+      contentType: 'x-www-form-urlencoded',
       method: 'POST',
     });
   },

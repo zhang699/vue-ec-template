@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import login from '../components/Login/modules/login';
 import APIIndicator from '../components/container/APIIndicator/modules/APIIndicator';
 import merchandiseDashboard from '../components/MerchandiseDashboard/modules/merchandiseDashboard';
-
+import shoppingCart from '../components/ShoppingCart/modules/shoppingCart';
 
 import createLogger from 'vuex/dist/logger';
 import monitorStateMiddleware from '../plugins/monitorStateMiddleware';
@@ -17,6 +17,7 @@ export default new Vuex.Store({
     login,
     APIIndicator,
     merchandiseDashboard,
+    shoppingCart,
   },
   strict: debug,
   plugins: debug ? [createLogger(), monitorStateMiddleware()] : [],

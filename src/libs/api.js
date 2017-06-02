@@ -14,15 +14,21 @@ class RequestError {
 RequestError.prototype = Error.prototype;
 
 const DEFAULT_HEADER = {
-  'Content-Type': 'application/json',
+  //'Content-Type': 'application/json',
+  'Content-Type': 'application/json;charset=UTF-8',
+  'NationID': 'MY',
 };
 
 function request(options) {
   const { url, method = 'GET' } = options;
-  const headers = new Headers({
+  /*const headers = new Headers({
     ...options.headers,
     ...DEFAULT_HEADER,
-  });
+  });*/
+  const headers = {
+    ...options.headers,
+    ...DEFAULT_HEADER,
+  };
 
   let fetchPromise = null;
   if (method === 'GET') {
@@ -31,12 +37,21 @@ function request(options) {
       headers,
     });
   } else {
+    // login 
+    let body = options.body;
+    if (options.contentType === 'x-www-form-urlencoded') {
+      headers['Content-Type'] = options.contentType;
+      const urlEncodedrequest = [];
+      for (const key in body) {
+        urlEncodedrequest.push(`${key}=${body[key]}`);
+      }
+      const requestForm = urlEncodedrequest.reduce((pre, cur) => `${pre}&${cur}`);
+      body = requestForm;
+    }
     fetchPromise = fetch(`${API_HOST}${url}`, {
       method,
       headers,
-      body: {
-        ...options.body,
-      },
+      body,
     });
   }
 

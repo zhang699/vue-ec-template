@@ -9,11 +9,24 @@
           <button class="text-button strong h3">Store</button>
         </div>
         <div class="push"></div>
+
+        
+        <div class="shopping-cart center-vertical close-to-full-height">
+          
+        </div>
+
         <div class="address center-vertical">
           <button class="text-button strong h4">Enter Address</button>
         </div>
+
       </div>
       <div class="control">
+        
+        <router-link :to="{ name: 'ShoppingCart'}"
+                    class="router-link center-vertical">
+          <button class="rounded secondary-button match-parent shopping-cart">({{numberOfShopping}})ShoppingCart</button>
+        </router-link>
+
         <router-link :to="{ name: 'Login'}" class="router-link center-vertical">
           <button class="rounded secondary-button fat-border">Log In</button>
         </router-link>
@@ -28,14 +41,19 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
 
   export default {
     name: 'NavBar',
     data() {
       return {
-
-      }
-    }
+      };
+    },
+    computed: {
+      ...mapState({
+        numberOfShopping: state => (state.shoppingCart.numberOfMerchandiseToCart),
+      }),
+    },
   };
 </script>
 
@@ -44,8 +62,8 @@
   @import '~scss-utils/scss-utils.scss';
   @import '../assets/theme.scss';
   @import '../assets/common.scss';
-
   @import '../assets/button.scss';
+
 
   .router-link {
     height: 100%;
@@ -82,6 +100,9 @@
       button {
         height: 90%;
         width: 100px;
+      }
+      .shopping-cart {
+        width: 300px;
       }
     }
   }
