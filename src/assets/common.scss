@@ -7,6 +7,13 @@
 .flex-primary-center {
   justify-content: center;
 }
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
 
 .flex-column-item {
   display: flex;
@@ -18,6 +25,10 @@
 .center-vertical {
   display: flex;
   align-items: center;
+}
+.center {
+  @extend .flex-item;
+  @extend .flex-primary-center;
 }
 
 .bottom-right {
@@ -33,4 +44,10 @@
 
 .close-to-full-height {
   height: 90%;
+}
+
+.router-link {
+  height: 100%;
+  text-decoration: none;
+  margin: 0 10px;
 }

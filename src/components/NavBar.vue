@@ -41,7 +41,7 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'NavBar',
@@ -50,8 +50,8 @@
       };
     },
     computed: {
-      ...mapState({
-        numberOfShopping: state => (state.shoppingCart.numberOfMerchandiseToCart),
+      ...mapGetters({
+        numberOfShopping: 'numberOfMerchandisesInCart',
       }),
     },
   };
@@ -65,11 +65,6 @@
   @import '../assets/button.scss';
 
 
-  .router-link {
-    height: 100%;
-    text-decoration: none;
-    margin: 0 10px;
-  }
   .nav-bar {
     position: fixed;
     background-color: #fff;

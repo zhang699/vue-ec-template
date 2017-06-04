@@ -23,7 +23,7 @@
       clearInterval(this.taskId);
     },
     methods: {
-      slideLandingToLeft: function() {
+      slideLandingToLeft() {
         function shiftLeft(left) {
           if (left === '0%') {
             return '-100%';
