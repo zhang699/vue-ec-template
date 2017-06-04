@@ -52,7 +52,7 @@
     },
     methods: {
       remove(item) {
-        this.removeCart(item.id);
+        this.removeCart(item);
       },
       ...mapActions([
         'removeCart',

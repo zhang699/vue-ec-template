@@ -58,7 +58,7 @@ const mutations = {
     }
   },
   [types.REMOVE_CART_SUCCESS](state, item) {
-    state.cartItems = state.cartItems.filter(filterItem => (item.id === filterItem.id));
+    state.cartItems = state.cartItems.filter(filterItem => (item.id !== filterItem.id));
   },
 };
 
