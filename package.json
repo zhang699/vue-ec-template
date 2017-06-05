@@ -21,7 +21,8 @@
     "scss-utils": "^1.0.1",
     "vue": "^2.2.6",
     "vue-router": "^2.3.1",
-    "vuex": "^2.3.1"
+    "vuex": "^2.3.1",
+    "immutable":"^3.8.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
