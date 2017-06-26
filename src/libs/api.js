@@ -1,6 +1,7 @@
-import { INDICATOR_PROCESSING, INDICATOR_DONE, INDICATOR_START } from '../components/container/APIIndicator/modules/actionType';
 
 import humps from 'humps';
+
+import { INDICATOR_PROCESSING, INDICATOR_DONE, INDICATOR_START } from '../components/container/APIIndicator/modules/actionType';
 
 const API_HOST = process.env.API_HOST;
 
@@ -14,7 +15,6 @@ class RequestError {
 RequestError.prototype = Error.prototype;
 
 const DEFAULT_HEADER = {
-  //'Content-Type': 'application/json',
   'Content-Type': 'application/json;charset=UTF-8',
   'NationID': 'MY',
 };
@@ -42,11 +42,14 @@ function request(options) {
     if (options.contentType === 'x-www-form-urlencoded') {
       headers['Content-Type'] = options.contentType;
       const urlEncodedrequest = [];
-      for (const key in body) {
-        urlEncodedrequest.push(`${key}=${body[key]}`);
-      }
-      const requestForm = urlEncodedrequest.reduce((pre, cur) => `${pre}&${cur}`);
+      Object.entries(body).forEach(([key, value]) => {
+        urlEncodedrequest.push(`${key}=${encodeURIComponent(body[key])}`);
+      });
+     
+      const requestForm = urlEncodedrequest.reduce((pre, cur) => `${pre}&${cur}`, '');
       body = requestForm;
+    } else {
+      body = JSON.stringify(body);
     }
     fetchPromise = fetch(`${API_HOST}${url}`, {
       method,
@@ -54,7 +57,6 @@ function request(options) {
       body,
     });
   }
-
   return fetchPromise.then((response) => {
     if (!response.ok) {
       throw new RequestError({
@@ -68,8 +70,6 @@ function request(options) {
     return humps.camelizeKeys(responseJSON);
   });
 }
-
-
 
 export function executeRequest({ commit, state, dispatch }, options) {
   return new Promise((resolve, reject) => {
@@ -109,9 +109,3 @@ function getQueryString(params = {}) {
     .map(k => `${esc(k)}=${esc(params[k])}`)
     .join('&');
 }
-
-
-
-
-
-
