@@ -2,7 +2,7 @@
   <section class="landing-page">
     <div class="landing-cover">
 
-      <a v-for="position in positions" class="target-page" :style="{ 'background-image': `url(${position.image})`, 
+      <a :key="index" v-for="(position, index) in positions" class="target-page" :style="{ 'background-image': `url(${position.image})`, 
       'top': `${position.top}`, 
       'left': `${position.left}`,
       'z-index': `${position.zIndex}`}">
