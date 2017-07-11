@@ -2,6 +2,13 @@
 
 > A Vue.js project
 
+## Feature
+
+- Vuex Example with, Action, Mutation and Promise. 
+- Feature-based project structure which related files into single folder.
+- Configuration-based API request declaration which makes composing body, query and path parameters easily.
+
+
 ## Build Setup
 
 ``` bash

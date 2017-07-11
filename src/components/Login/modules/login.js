@@ -20,7 +20,7 @@ const getters = {
 
 // actions
 const actions = {
-  login(actionOptions, products) {
+  login(actionOptions, info) {
     return executeRequest(actionOptions, {
       types: [
         types.LOGIN_PROCESSING,
@@ -28,9 +28,9 @@ const actions = {
         types.LOGIN_FAILURE],
       url: 'Auth/Login',
       body: {
-        username: 'admin',
-        password: '1234',
-        grant_type: 'password',
+        username: info.username,
+        password: info.password,
+        grant_type: info.grantType,
       },
       contentType: 'x-www-form-urlencoded',
       method: 'POST',

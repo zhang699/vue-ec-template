@@ -31,7 +31,12 @@
     },
     methods: {
       click() {
-        this.$store.dispatch('login', {}).then(()=>{
+        this.$store.dispatch('login', {
+          username: 'admin',
+          password: '1234',
+          grantType: 'password',
+        }).then(()=>{
+          
         });
       },
     },

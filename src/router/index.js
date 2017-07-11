@@ -8,6 +8,7 @@ import ShoppingCart from '@/components/ShoppingCart/ShoppingCart';
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',

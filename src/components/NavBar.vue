@@ -1,5 +1,8 @@
 <template>
   <div class="nav-bar">
+    <div class="info">
+      {{ buildTime}}
+    </div>
     <div class="nav-bar-content">
       <div class="logo">
         <h2>Fake HonestBee</h2>
@@ -42,12 +45,16 @@
 
 <script>
   import { mapGetters } from 'vuex';
-
+  const { buildTime } = process.env;
   export default {
     name: 'NavBar',
     data() {
       return {
+        buildTime,
       };
+    },
+    created() {
+      console.warn('info.buildTime', buildTime);
     },
     computed: {
       ...mapGetters({
@@ -72,6 +79,11 @@
     z-index: 99;
     height: $nav-bar-height;
     width: 100%;
+    .info {
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
     .nav-bar-content {
        display: flex;
        margin: 0 120px;
