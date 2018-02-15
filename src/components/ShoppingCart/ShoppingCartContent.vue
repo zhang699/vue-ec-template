@@ -22,7 +22,7 @@
         <h4 class="column small-column">操作</h4>
       </div>
       <div class="body">
-        <div class="item row" v-for="item in cartItems">
+        <div :key="item.name" class="item row" v-for="item in cartItems">
             <div class="column row space-around">
               <img :src="item.imageUrl" width="64" height="64" />
               <h4 class="name">{{item.name}}</h4>
@@ -42,62 +42,60 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex';
+import { mapActions } from 'vuex'
 
-  export default {
-    props: ['cartItems'],
-    data() {
-      return {
-      };
+export default {
+  props: ['cartItems'],
+  data() {
+    return {}
+  },
+  methods: {
+    remove(item) {
+      this.removeCart(item)
     },
-    methods: {
-      remove(item) {
-        this.removeCart(item);
-      },
-      ...mapActions([
-        'removeCart',
-      ]),
-      isCartEmpty() {
-        return this.cartItems.length === 0;
-      },
+    ...mapActions(['removeCart']),
+    isCartEmpty() {
+      return this.cartItems.length === 0
     },
-  };
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '../../assets/common.scss';
-  
-  $HEAD_BODY_GAP: 20px;
-  $ROW_GAP: 20px;
-  .head, .row {
-    @extend .flex-item;
-    & + {
-      margin-top :$HEAD_BODY_GAP;
-    }
+@import '../../assets/common.scss';
+
+$HEAD_BODY_GAP: 20px;
+$ROW_GAP: 20px;
+.head,
+.row {
+  @extend .flex-item;
+  & +  {
+    margin-top: $HEAD_BODY_GAP;
   }
-  .advertise {
-    height: 120px;
-    width: 98vw;
-    border: 1px solid black;
-    & + * {
-      margin-top: 20px;
-    }
+}
+.advertise {
+  height: 120px;
+  width: 98vw;
+  border: 1px solid black;
+  & + * {
+    margin-top: 20px;
   }
-  .column {
-    .name {
-      width: 80px;
-    }
-    margin: 0px 20px;
-    width: 200px;
-    &.small-column {
-      width: 120px;
-    }
+}
+.column {
+  .name {
+    width: 80px;
   }
-  .item + * {
-    margin-top: $ROW_GAP;
+  margin: 0px 20px;
+  width: 200px;
+  &.small-column {
+    width: 120px;
   }
-  
-  .shopping-content-list {
-    margin: 20px 0px;
-  }
+}
+.item + * {
+  margin-top: $ROW_GAP;
+}
+
+.shopping-content-list {
+  margin: 20px 0px;
+}
 </style>

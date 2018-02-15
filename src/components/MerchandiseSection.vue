@@ -14,7 +14,7 @@
     </div>
     <div class="content" v-if="!waiting">
       <ul>
-        <ol class="item-container" v-for="item in products">
+        <ol :key="item.title" class="item-container" v-for="item in products">
     
             <div class="thumbnail" :style="{'background-image': `url(${item.previewImageUrl})`}">
 
@@ -37,82 +37,79 @@
 </template>
 
 <script>
-
-  export default {
-    name: 'MerchandiseSection',
-    props: ['title', 'products', 'waiting'],
-    data() {
-      return {};
+export default {
+  name: 'MerchandiseSection',
+  props: ['title', 'products', 'waiting'],
+  data() {
+    return {}
+  },
+  methods: {
+    addCart(item) {
+      this.$emit('addCart', item)
     },
-    methods: {
-      addCart(item) {
-        this.$emit('addCart', item);
-      },
-    },
-  };
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-
-  @import '../assets/common.scss';
-  @import '../assets/button.scss';
-  .content {
-    > ul {
-      display: flex;
-      flex-direction: row;
-    }
-    overflow-x: hidden;
-    > h3 {
-      color: black;
-    }
-  }
-  .item-container {
-    min-width: 180px;
-    height: 300px;
-    text-align: left;
+@import '../assets/common.scss';
+@import '../assets/button.scss';
+.content {
+  > ul {
     display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    $BOX_SHADOW_COLOR: #ccc;
-    transition: box-shadow 0.5s;
-    padding-top: 20px;
-    &:hover {
-      box-shadow:5px 2px 5px $BOX_SHADOW_COLOR, -5px 2px 5px $BOX_SHADOW_COLOR;
-    }
-    .description {
-      padding: 5px 5px;
-    }
+    flex-direction: row;
   }
-  .title-header {
-    color: white;
-    display: flex;
-    width: 100%;
-    background-color: rgb(0, 35, 93);
-    padding: 14px 20px;
-    box-sizing: border-box;
+  overflow-x: hidden;
+  > h3 {
+    color: black;
   }
-  .item-start {
-    padding-left: 20px;
+}
+.item-container {
+  min-width: 180px;
+  height: 300px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  $BOX_SHADOW_COLOR: #ccc;
+  transition: box-shadow 0.5s;
+  padding-top: 20px;
+  &:hover {
+    box-shadow: 5px 2px 5px $BOX_SHADOW_COLOR, -5px 2px 5px $BOX_SHADOW_COLOR;
   }
-  .item-end {
-    padding-right: 20px;
+  .description {
+    padding: 5px 5px;
   }
-  .header-tail {
+}
+.title-header {
+  color: white;
+  display: flex;
+  width: 100%;
+  background-color: rgb(0, 35, 93);
+  padding: 14px 20px;
+  box-sizing: border-box;
+}
+.item-start {
+  padding-left: 20px;
+}
+.item-end {
+  padding-right: 20px;
+}
+.header-tail {
+}
+.thumbnail {
+  width: 106px;
+  height: 146px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-self: center;
+  background-position: center center;
+}
 
-  }
-  .thumbnail {
-    width: 106px;
-    height: 146px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    align-self: center;
-    background-position: center center;
-  }
-
-  .title {
-    height: 100%;
-  }
-  .merchandise-section {
-    margin: 0px 120px;
-  }
+.title {
+  height: 100%;
+}
+.merchandise-section {
+  margin: 0px 120px;
+}
 </style>
